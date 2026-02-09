@@ -154,7 +154,11 @@ Gateway가 시작되면 브라우저에서 Control UI를 엽니다.
 ### Gateway 설정
 
 - [설정 가이드](/ko-KR/gateway/configuration) - 상세 설정 옵션
+- [설정 예시](/ko-KR/gateway/configuration-examples) - 일반적인 설정 패턴과 스니펫
+- [인증](/ko-KR/gateway/authentication) - OAuth, API 키, setup-token
 - [보안](/ko-KR/gateway/security) - 토큰, 허용 목록, 안전 제어
+- [로컬 모델](/ko-KR/gateway/local-models) - LM Studio, vLLM 등 로컬 LLM 설정
+- [CLI 백엔드](/ko-KR/gateway/cli-backends) - 로컬 AI CLI 폴백 런타임
 - [프로토콜](/ko-KR/gateway/protocol) - WebSocket 프로토콜과 RPC 메서드
 - [OpenAI 호환 API](/ko-KR/gateway/openai-http-api) - HTTP API 엔드포인트
 - [헬스 체크](/ko-KR/gateway/health) - 상태 진단과 Doctor 명령어
@@ -162,6 +166,7 @@ Gateway가 시작되면 브라우저에서 Control UI를 엽니다.
 - [디스커버리](/ko-KR/gateway/discovery) - 노드 디스커버리와 트랜스포트
 - [원격 접근](/ko-KR/gateway/remote) - SSH 터널, Tailscale, VPN
 - [백그라운드 프로세스](/ko-KR/gateway/background-process) - 백그라운드 exec과 프로세스 관리
+- [문제 해결](/ko-KR/gateway/gateway-troubleshooting) - 심층 진단 런북
 
 ### 핵심 개념
 
@@ -169,10 +174,13 @@ Gateway가 시작되면 브라우저에서 Control UI를 엽니다.
 - [에이전트](/ko-KR/concepts/agent) - 모델, 프롬프트, 세션 설정
 - [에이전트 실행 루프](/ko-KR/concepts/agent-loop) - 메시지 처리 전체 흐름과 훅 포인트
 - [에이전트 워크스페이스](/ko-KR/concepts/agent-workspace) - 워크스페이스 디렉토리 구조와 파일
+- [세션 관리](/ko-KR/concepts/session) - 세션 키, 범위, DM 격리
+- [세션 도구](/ko-KR/concepts/session-tool) - 세션 목록/기록/전송 도구
 - [모델 프로바이더](/ko-KR/concepts/model-providers) - AI 모델과 커스텀 프로바이더 설정
 - [모델 장애 조치](/ko-KR/concepts/model-failover) - 인증 프로필 회전과 폴백
 - [컨텍스트 관리](/ko-KR/concepts/context) - 컨텍스트 윈도우 최적화
 - [세션 프루닝](/ko-KR/concepts/session-pruning) - 오래된 도구 결과 트리밍
+- [Markdown 포맷팅](/ko-KR/concepts/markdown-formatting) - 채널별 Markdown 렌더링
 - [메시지 큐](/ko-KR/concepts/queue) - 큐 모드와 동시성 관리
 - [재시도 정책](/ko-KR/concepts/retry) - 채널별 HTTP 재시도 설정
 - [OAuth 인증](/ko-KR/concepts/oauth) - 구독 기반 OAuth 토큰 관리
@@ -182,9 +190,13 @@ Gateway가 시작되면 브라우저에서 Control UI를 엽니다.
 
 - [도구](/ko-KR/tools) - 스킬, 플러그인, 명령어
 - [스킬 만들기](/ko-KR/tools/creating-skills) - 커스텀 스킬 개발
+- [ClawHub](/ko-KR/tools/clawhub) - 공개 스킬 레지스트리 검색/설치/게시
+- [플러그인](/ko-KR/tools/plugin) - 플러그인 시스템 발견, 설정, 개발
+- [Lobster](/ko-KR/tools/lobster) - 결정론적 워크플로우 파이프라인과 승인 게이트
 - [서브에이전트](/ko-KR/tools/subagents) - 백그라운드 에이전트 실행
 - [명령어 실행](/ko-KR/tools/exec) - 셸 명령어 실행과 보안
 - [브라우저](/ko-KR/tools/browser) - 브라우저 자동화
+- [Chrome 확장 프로그램](/ko-KR/tools/chrome-extension) - 기존 Chrome 탭 릴레이 제어
 - [브라우저 로그인](/ko-KR/tools/browser-login) - 수동 로그인과 X/Twitter 게시
 - [슬래시 명령어](/ko-KR/tools/slash-commands) - 명령어와 디렉티브 전체 목록
 - [Elevated 모드](/ko-KR/tools/elevated) - 호스트 직접 실행 모드
@@ -213,6 +225,21 @@ Gateway가 시작되면 브라우저에서 Control UI를 엽니다.
 - [음성 웨이크](/ko-KR/nodes/voicewake) - 글로벌 웨이크 워드 설정
 - [미디어 이해](/ko-KR/nodes/media-understanding) - 이미지/오디오/비디오 이해
 - [Talk 모드](/ko-KR/nodes/talk) - ElevenLabs TTS 음성 대화
+
+### 모델 프로바이더
+
+- [프로바이더 개요](/ko-KR/providers) - 지원하는 LLM 프로바이더 목록
+- [Anthropic (Claude)](/ko-KR/providers/anthropic) - API 키, setup-token, 프롬프트 캐싱
+- [OpenAI](/ko-KR/providers/openai) - API 키, Codex 구독
+- [Google (Gemini)](/ko-KR/providers/google) - Gemini API, 미디어 처리, 임베딩
+- [Ollama](/ko-KR/providers/ollama) - 로컬 LLM 런타임, 자동 발견
+
+### 보안
+
+- [보안 개요](/ko-KR/security) - 보안 아키텍처와 계층
+- [실행 승인](/ko-KR/security/approval-flow) - 명령 실행 승인, 허용 목록
+- [샌드박싱](/ko-KR/security/sandbox) - Docker 기반 도구 격리
+- [위협 모델](/ko-KR/security/threat-model) - MITRE ATLAS 기반 위협 분석
 
 ### 참조
 
