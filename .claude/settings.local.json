@@ -25,7 +25,11 @@
       "Bash(xargs:*)",
       "Bash(comm:*)",
       "Bash(python3 -c \" import sys, json for line in sys.stdin: line = line.strip\\(\\) if not line: continue try: obj = json.loads\\(line\\) if obj.get\\(''type''\\) == ''human'' or obj.get\\(''role''\\) == ''user'': print\\(''USER:'', json.dumps\\(obj\\)[:500]\\) elif obj.get\\(''type''\\) == ''assistant'' or obj.get\\(''role''\\) == ''assistant'': content = str\\(obj.get\\(''message'', {}\\).get\\(''content'', ''''\\)\\)[:300] if content and len\\(content\\) > 10: print\\(''ASSISTANT:'', content[:300]\\) except: pass \")",
-      "Bash(python3 -c \" import sys, json lines = sys.stdin.readlines\\(\\) for line in lines[-100:]: line = line.strip\\(\\) if not line: continue try: obj = json.loads\\(line\\) t = obj.get\\(''type'', ''''\\) if t == ''human'': msg = obj.get\\(''message'', {}\\) if isinstance\\(msg, dict\\): content = msg.get\\(''content'', ''''\\) else: content = str\\(msg\\) print\\(''=== USER ===''\\) print\\(str\\(content\\)[:500]\\) elif t == ''assistant'': msg = obj.get\\(''message'', {}\\) if isinstance\\(msg, dict\\): content = msg.get\\(''content'', ''''\\) else: content = str\\(msg\\) text = str\\(content\\)[:500] if len\\(text\\) > 20: print\\(''=== ASSISTANT ===''\\) print\\(text\\) except Exception as e: pass \")"
+      "Bash(python3 -c \" import sys, json lines = sys.stdin.readlines\\(\\) for line in lines[-100:]: line = line.strip\\(\\) if not line: continue try: obj = json.loads\\(line\\) t = obj.get\\(''type'', ''''\\) if t == ''human'': msg = obj.get\\(''message'', {}\\) if isinstance\\(msg, dict\\): content = msg.get\\(''content'', ''''\\) else: content = str\\(msg\\) print\\(''=== USER ===''\\) print\\(str\\(content\\)[:500]\\) elif t == ''assistant'': msg = obj.get\\(''message'', {}\\) if isinstance\\(msg, dict\\): content = msg.get\\(''content'', ''''\\) else: content = str\\(msg\\) text = str\\(content\\)[:500] if len\\(text\\) > 20: print\\(''=== ASSISTANT ===''\\) print\\(text\\) except Exception as e: pass \")",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)"
     ]
   }
 }
